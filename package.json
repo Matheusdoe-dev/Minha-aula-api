@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server/server.ts",
-    "production": "ts-node --ignore-watch node_modules src/server/server.ts"
+    "production": "ts-node --ignore-watch node_modules src/server/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
   },
   "dependencies": {
     "cors": "^2.8.5",
