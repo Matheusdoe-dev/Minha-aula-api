@@ -1,1 +1,1 @@
-web: ts-node --ignore-watch node_modules src/server/server.ts && knex:migrate
+web: yarn start
