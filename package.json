@@ -1,11 +1,12 @@
 {
   "name": "minha-aula-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/src/server/server.js",
   "license": "MIT",
   "scripts": {
+    "build-ts": "tsc --outDir build",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server/server.ts",
-    "start": "ts-node --ignore-watch node_modules src/server/server.ts && knex:migrate",
+    "start": "build-ts && node build/src/server/server.js && knex:migrate",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
   },
